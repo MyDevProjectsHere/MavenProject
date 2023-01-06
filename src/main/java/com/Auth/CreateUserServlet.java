@@ -48,9 +48,7 @@ public class CreateUserServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		RequestDispatcher rd = request.getRequestDispatcher("ShowDetails.jsp");
-		request.setAttribute("userDetails", rows);
-		rd.forward(request, response);
+		response.sendRedirect("index.jsp");
 		
 		
 	}
