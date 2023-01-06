@@ -16,9 +16,24 @@
 		
 			Iterator it = 	allUsers.iterator();
 			
-			for(GetAllUsers curUser: allUsers){
+			%>
+			<%-- for(GetAllUsers curUser: allUsers){
 				%>
-				<div class="card">
+				
+				<%
+			} --%>
+			
+			<div class="container">
+			
+				<div class="row">
+					<%
+						
+					for(GetAllUsers curUser : allUsers){
+						
+						%>
+						<div class="col-lg-4 mt-5">
+							
+							<div class="card">
 					<div class="card-body">
 					
 						<p class="text text-center text-success">
@@ -33,9 +48,24 @@
 					<%= curUser.getEmail() %>
 				</p>
 					</div>
+					
+					<div class="card-footer d-flex flex-row justify-content-between">
+						
+						<button>view profile</button>
+						<button>edit profile</button>
+					</div>
 				</div>
-				<%
-			}
+						
+						</div>
+						
+						<% 
+					}
+					
+					%>
+				
+				</div>
+			</div>
+			<%
 		
 		
 	%>
