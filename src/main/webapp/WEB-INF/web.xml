@@ -16,6 +16,24 @@
   	<description></description>
   	<servlet-class>com.Auth.GetAllUsers</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ViewProfileServlet</servlet-name>
+  	<display-name>ViewProfileServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.Auth.ViewProfileServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>DeleteProfileServlet</servlet-name>
+  	<display-name>DeleteProfileServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.Auth.DeleteProfileServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>UpdateProfileServlet</servlet-name>
+  	<display-name>UpdateProfileServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.Auth.UpdateProfileServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>CreateUserServlet</servlet-name>
   	<url-pattern>/CreateNewUser</url-pattern>
@@ -23,5 +41,17 @@
   <servlet-mapping>
   	<servlet-name>GetAllUsers</servlet-name>
   	<url-pattern>/GetAllUsers</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ViewProfileServlet</servlet-name>
+  	<url-pattern>/ViewProfile</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DeleteProfileServlet</servlet-name>
+  	<url-pattern>/DeleteProfile</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UpdateProfileServlet</servlet-name>
+  	<url-pattern>/UpdateProfile</url-pattern>
   </servlet-mapping>
 </web-app>

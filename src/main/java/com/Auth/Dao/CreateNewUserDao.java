@@ -34,13 +34,14 @@ public class CreateNewUserDao extends HttpServlet {
 			Statement st = conn.createStatement();
 			ResultSet res = st.executeQuery(selectQuery);
 			int rowCount = 0;
-			
+			res.next();
+			rowCount = res.getInt("Id");
 			//To Keep Track of Id for inserting
-			while(res.next()) {rowCount++;}
+		
 			PreparedStatement prepSt = conn.prepareStatement(query);
 			
 			//set the values
-			prepSt.setInt(1, rowCount); //Id
+			prepSt.setInt(1, rowCount+1); //Id								
 			prepSt.setString(2,newUserObj.getName()); //Name
 			prepSt.setInt(3,newUserObj.getAge()); //Age
 			prepSt.setString(4,newUserObj.getEmail()); //email
@@ -55,9 +56,7 @@ public class CreateNewUserDao extends HttpServlet {
 			count = rowsEffected;
 			HttpServletRequest request = null;
 			HttpServletResponse response = null;
-			RequestDispatcher rd = request.getRequestDispatcher("ShowDetails.jsp");
-			request.setAttribute("userDetails", count);
-			rd.forward(request, response);
+			
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println("this is the error : "+e.getMessage());
