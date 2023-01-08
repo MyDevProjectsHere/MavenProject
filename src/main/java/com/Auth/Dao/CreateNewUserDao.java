@@ -33,15 +33,19 @@ public class CreateNewUserDao extends HttpServlet {
 			Connection conn = DriverManager.getConnection(url,dbname,dbpass);
 			Statement st = conn.createStatement();
 			ResultSet res = st.executeQuery(selectQuery);
-			int rowCount = 0;
+			int rowCount =0;
 			res.next();
-			rowCount = res.getInt("Id");
-			//To Keep Track of Id for inserting
-		
-			PreparedStatement prepSt = conn.prepareStatement(query);
 			
+			//To Keep Track of Id for inserting
+			while(res.next()) {
+				rowCount = res.getInt("Id");
+			}
+			rowCount++;
+			
+			PreparedStatement prepSt = conn.prepareStatement(query);
+//			System.out.print("rowId : "+rowCount);
 			//set the values
-			prepSt.setInt(1, rowCount+1); //Id								
+			prepSt.setInt(1, rowCount); //Id								
 			prepSt.setString(2,newUserObj.getName()); //Name
 			prepSt.setInt(3,newUserObj.getAge()); //Age
 			prepSt.setString(4,newUserObj.getEmail()); //email
